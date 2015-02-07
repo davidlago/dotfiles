@@ -1,0 +1,43 @@
+# To include this file, add this to ~/.gitconfig
+#
+# [user]
+#   email = davidlago@gmail.com
+#   name = David Lago
+# [include]
+#     path = ~/dotfiles/.gitconfig-include
+
+[core]
+  editor = vi
+[merge]
+  tool = vimdiff
+[filter "media"]
+  clean = git-media-clean %f
+  smudge = git-media-smudge %f
+[credential]
+  helper = osxkeychain
+[alias]
+  co = checkout
+  br = branch
+  ci = commit
+  st = status
+  unstage = reset HEAD --
+  last = log -1 HEAD
+  discard = checkout --
+  s = status -s
+        unadd = reset HEAD
+        forcepull = "!git fetch ; git reset --hard @{u}"
+        lg = log --color --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+        branchprune = "!git checkout develop ; git pull ; git gc --auto"
+        rb = "!f() { git rebase -i HEAD~$1; }; f"
+        conflicts = diff --name-only --diff-filter=U
+        ours = "!f() { git checkout --ours $1 && git add $1; }; f"
+        theirs = "!f() { git checkout --theirs $1 && git add $1; }; f"
+        pu = "![[ $(git config \"branch.$(git rev-parse --abbrev-ref HEAD).merge\") == '' ]] && git push -u || git push"
+[color]
+  ui = true
+[push]
+  default = current
+[pull]
+  rebase = true
+[rerere]
+  enable = true
