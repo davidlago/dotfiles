@@ -3,11 +3,7 @@
 #
 # ln -sf ~/dotfiles/davidlago.zsh-theme ~/.oh-my-zsh/themes/
 
-function parent_project() {
-  [[ $PWD =~ ([a-z]+)/vendor ]] && echo "$match[1] "
-}
-
-PROMPT='$FG[166]$(parent_project) %c $FG[166]$(git_prompt_info)%{$reset_color%}'
+PROMPT='$FG[166]%c $FG[166]$(git_prompt_info)%{$reset_color%}'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="[$FG[210]"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
