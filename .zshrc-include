@@ -8,3 +8,7 @@ alias ga="git add -A"
 alias gc="git commit -m"
 alias gb="git branch"
 alias gco="git checkout"
+
+# LS colors
+export CLICOLOR=1
+export LSCOLORS=Dxfxcxdxbxegedabagacad
