@@ -103,3 +103,20 @@ let &colorcolumn=80
 set number
 " No ~ backup files
 set nobackup
+" highlight trailing spaces in annoying red
+highlight ExtraWhitespace ctermbg=1 guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
+" CtrlP setup
+" Clone https://github.com/kien/ctrlp.vim.git bundle/ctrlp.vim into ~/.vim
+" and execute this in vim: :helptags ~/.vim/bundle/ctrlp.vim/doc
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+
