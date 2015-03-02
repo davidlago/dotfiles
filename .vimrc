@@ -99,3 +99,7 @@ endif
 colorscheme monokai
 " 80-char column mark
 let &colorcolumn=80
+" Line numbers
+set number
+" No ~ backup files
+set nobackup
