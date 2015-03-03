@@ -26,7 +26,7 @@ if has("vms")
 else
   set backup		" keep a backup file
 endif
-set history=50		" keep 50 lines of command line history
+set history=500		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
@@ -119,4 +119,12 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-
+" 2-space indents
+filetype plugin indent on
+set tabstop=2
+set shiftwidth=2
+set expandtab
+" Use system clipboard
+if has('unnamedplus')
+  set clipboard=unnamed,unnamedplus
+endif
