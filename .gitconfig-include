@@ -6,9 +6,8 @@
 # [include]
 #     path = ~/dotfiles/.gitconfig-include
 
-[global]
-core.excludesfile ~/dotfiles/.gitignore_global
 [core]
+  excludesfile = ~/dotfiles/.gitignore_global
   editor = vi
 [merge]
   tool = vimdiff
