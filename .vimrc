@@ -1,3 +1,5 @@
+execute pathogen#infect()
+
 " An example for a vimrc file.
 "
 " Maintainer:	Bram Moolenaar <Bram@vim.org>
@@ -128,3 +130,5 @@ set expandtab
 if has('unnamedplus')
   set clipboard=unnamed,unnamedplus
 endif
+" Highlight search fields
+highlight Search ctermfg=yellow
