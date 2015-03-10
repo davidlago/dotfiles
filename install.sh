@@ -8,6 +8,12 @@ ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/davidlago.zsh-theme ~/.oh-my-zsh/themes/davidlago.zsh-theme
 ln -sf ~/dotfiles/monokai.vim ~/.vim/colors/monokai.vim
 
+# Link included file to .zshrc
+if ! (grep ".zshrc-include" ~/.zshrc 2>&1 /dev/null); then
+  echo "===> Linking .zshrc-include to main .zshrc..."
+  echo "source ~/dotfiles/.zshrc-include" >> ~/.zshrc
+fi
+
 # Pathogen
 if [ ! -d ~/.vim/bundle ]; then
   echo "===> Installing pathogen..."
