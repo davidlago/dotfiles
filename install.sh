@@ -1,5 +1,12 @@
 #!/bin/sh
 
+# Symlinks
+rm ~/.vimrc
+rm ~/.tmux.conf
+ln -sf ~/dotfiles/.vimrc ~/.vimrc
+ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
+ln -sf ~/dotfiles/davidlago.zsh-theme ~/.oh-my-zsh/themes/davidlago.zsh-theme
+
 # Pathogen
 if [ ! -d ~/.vim/bundle ]; then
   echo "===> Installing pathogen..."
