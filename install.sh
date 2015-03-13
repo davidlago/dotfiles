@@ -66,5 +66,6 @@ fi
 if [ ! -d ~/.vim/bundle/ag ]; then
   echo "===> Installing Silver Searcher..."
   echo "===> Don't forget to install the_silver_searcher and execute :Helptags in Vim"
+  echo "===> brew install the_silver_searcher in Mac, apt-get install silversearcher-ag in linux"
   git clone https://github.com/rking/ag.vim ~/.vim/bundle/ag
 fi
