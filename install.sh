@@ -61,3 +61,10 @@ if [ ! -d ~/.vim/bundle/vim-gitgutter ]; then
   echo "===> Installing Vim Gitgutter..."
   git clone git://github.com/airblade/vim-gitgutter.git ~/.vim/bundle/vim-gitgutter
 fi
+
+# Silver searcher
+if [ ! -d ~/.vim/bundle/ag ]; then
+  echo "===> Installing Silver Searcher..."
+  echo "===> Don't forget to install the_silver_searcher and execute :Helptags in Vim"
+  git clone https://github.com/rking/ag.vim ~/.vim/bundle/ag
+fi
