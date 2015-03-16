@@ -161,4 +161,4 @@ nmap <leader>bl :ls<CR>
 let g:Powerline_symbols = "fancy"
 let g:airline_theme='wombat'
 " indentLine color
-let g:indentLine_color_term = 239
+let g:indentLine_color_term = 237
