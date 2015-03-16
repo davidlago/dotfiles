@@ -69,3 +69,9 @@ if [ ! -d ~/.vim/bundle/ag ]; then
   echo "===> brew install the_silver_searcher in Mac, apt-get install silversearcher-ag in linux"
   git clone https://github.com/rking/ag.vim ~/.vim/bundle/ag
 fi
+
+# indentLine
+if [ ! -d ~/.vim/bundle/indentLine ]; then
+  echo "===> Installing indentLine..."
+  git clone https://github.com/Yggdroot/indentLine ~/.vim/bundle/indentLine
+fi
