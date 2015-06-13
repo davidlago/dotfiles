@@ -31,7 +31,7 @@ fi
 if [ ! -d ~/powerline-fonts ]; then
   echo "===> Installing powerline fonts..."
   echo "===> Don't forget to change the default font for the terminal"
-  git clone git@github.com:powerline/fonts.git ~/powerline-fonts
+  git clone https://github.com/powerline/fonts.git ~/powerline-fonts
   ~/powerline-fonts/install.sh
 fi
 
@@ -52,14 +52,14 @@ fi
 # Vim Fugitive
 if [ ! -d ~/.vim/bundle/vim-fugitive ]; then
   echo "===> Installing Vim Fugitive..."
-  git clone git://github.com/tpope/vim-fugitive.git ~/.vim/bundle/vim-fugitive
+  git clone https://github.com/tpope/vim-fugitive.git ~/.vim/bundle/vim-fugitive
   vim -u NONE -c "helptags vim-fugitive/doc" -c q
 fi
 
 # Git gutter
 if [ ! -d ~/.vim/bundle/vim-gitgutter ]; then
   echo "===> Installing Vim Gitgutter..."
-  git clone git://github.com/airblade/vim-gitgutter.git ~/.vim/bundle/vim-gitgutter
+  git clone https://github.com/airblade/vim-gitgutter.git ~/.vim/bundle/vim-gitgutter
 fi
 
 # Silver searcher
