@@ -4,6 +4,7 @@
 rm ~/.vimrc
 rm ~/.tmux.conf
 ln -sf ~/dotfiles/.vimrc ~/.vimrc
+mkdir ~/.vim/colors
 ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/davidlago.zsh-theme ~/.oh-my-zsh/themes/davidlago.zsh-theme
 ln -sf ~/dotfiles/monokai.vim ~/.vim/colors/monokai.vim
@@ -25,6 +26,7 @@ fi
 if [ ! -d ~/.vim/bundle/vim-airline ]; then
   echo "===> Installing vim-airline..."
   git clone https://github.com/bling/vim-airline ~/.vim/bundle/vim-airline
+  git clone https://github.com/vim-airline/vim-airline-themes.giti ~/.vim/bundle/vim-airline-themes
 fi
 
 # Powerline fonts
