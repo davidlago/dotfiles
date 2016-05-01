@@ -80,3 +80,7 @@ This is a list of some of the apps I install right away, in no particular order:
 
   * Install `unity-tweak-tool` and fiddle around with options. Insall
   `gnome-tweak-tool` and map the CAPS LOCK key to CTRL.
+
+  * Useful key bindings:
+    * Alt-4 closes window (since the F-keys here are Fn-based)
+    * Alt-t opens a terminal
