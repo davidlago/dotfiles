@@ -84,3 +84,6 @@ This is a list of some of the apps I install right away, in no particular order:
   * Useful key bindings:
     * Alt-4 closes window (since the F-keys here are Fn-based)
     * Alt-t opens a terminal
+
+  * Un-check Chrome's advanced setting "Continue running background apps..." to
+  prevent annoying error message after every reboot.
