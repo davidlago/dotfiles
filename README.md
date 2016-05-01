@@ -1,6 +1,6 @@
 ## Dotfiles
-This is a collection of my personal configuration files. It installs git,
-zsh, oh-my-zsh and tmux, and tweaks their config files.
+This is a collection of my personal configuration files. It installs git, zsh,
+oh-my-zsh and tmux, and tweaks their config files.
 
 ### Installation
 Clone repository directly in your home directory, and run the installer:
@@ -12,3 +12,6 @@ cd dotfiles
 <log out and back in...>
 ./install.sh
 ```
+
+### Other files of interest
+  * [Lenovo Yoga 3 Ubuntu 16.04 post-install](https://github.com/davidlago/dotfiles/blob/master/LenovoYoga3Ubuntu.md)
