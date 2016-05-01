@@ -1,8 +1,8 @@
 ## Installing Ubuntu in a Lenovo Yoga 3 Pro
 This is a brief document outlining the steps I am taking as I configure my new
 Yoga Pro 3 to my liking. I'm assuming Ubuntu 16.04 has been successfully
-installed, and that the ```setup.sh```  and ```install.sh``` scripts have been
-run.
+installed, and that the `setup.sh`  and `install.sh` scripts have
+been run.
 
 ### Adding multi-touch gestures
 Follow [this article](https://ineed.coffee/1068/os-x-like-multitouch-gestures-for-macbook-pro-running-ubuntu-12-10/) in order to install and configure touchegg. In case the
@@ -22,8 +22,8 @@ article ever gets deleted, here is a summary:
     cd unity
     apt-get source unity
     ```
-  * Then edit ```/tmp/unity/unity-*/plugins/unityshell/src/unityshell.cpp```
-  and comment all the lines beginning with ```gestures_```.
+  * Then edit `/tmp/unity/unity-*/plugins/unityshell/src/unityshell.cpp`
+  and comment all the lines beginning with `gestures_`.
   * Buid unity (this takes a while):
     ```
     cd /tmp/unity/unity-*
@@ -45,10 +45,9 @@ article ever gets deleted, here is a summary:
     make
     sudo make install
     ```
-  * Copy the ```touchegg.conf``` file in this repository under
-  ```~/.config/touchegg/touchegg.conf``` and the
-  ```touchegg.desktop``` under
-  ```~/.config/autostart/touchegg.desktop```.
+  * Copy the `touchegg.conf` file in this repository under
+  `~/.config/touchegg/touchegg.conf` and the `touchegg.desktop`
+  under `~/.config/autostart/touchegg.desktop`.
   * Log out and back in and try swiping left-right-up-down with
   four fingers to switch workspaces and dragging with a three
   finger swipe.
