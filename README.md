@@ -4,6 +4,7 @@ oh-my-zsh and tmux, and tweaks their config files.
 
 ### Installation
 Clone repository directly in your home directory, and run the installer:
+
 ```
 cd ~
 git clone https://github.com/davidlago/dotfiles.git
