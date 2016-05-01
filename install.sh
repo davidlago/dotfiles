@@ -1,10 +1,17 @@
 #!/bin/sh
 
+# Install oh my zsh
+if [ ! -d ~/.oh-my-zsh ]; then
+  echo "===> Installing oh-my-zsh..."
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  sed -i 's/robbyrussell/davidlago/g' ~/.zshrc
+fi
+
 # Symlinks
 rm ~/.vimrc
 rm ~/.tmux.conf
 ln -sf ~/dotfiles/.vimrc ~/.vimrc
-mkdir ~/.vim/colors
+mkdir -p ~/.vim/colors
 ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/davidlago.zsh-theme ~/.oh-my-zsh/themes/davidlago.zsh-theme
 ln -sf ~/dotfiles/monokai.vim ~/.vim/colors/monokai.vim
@@ -26,13 +33,12 @@ fi
 if [ ! -d ~/.vim/bundle/vim-airline ]; then
   echo "===> Installing vim-airline..."
   git clone https://github.com/bling/vim-airline ~/.vim/bundle/vim-airline
-  git clone https://github.com/vim-airline/vim-airline-themes.giti ~/.vim/bundle/vim-airline-themes
+  git clone https://github.com/vim-airline/vim-airline-themes ~/.vim/bundle/vim-airline-themes
 fi
 
-# Powerline fonts
+# Powerline fonts (only needed in Macs)
 if [ ! -d ~/powerline-fonts ]; then
   echo "===> Installing powerline fonts..."
-  echo "===> Don't forget to change the default font for the terminal"
   git clone https://github.com/powerline/fonts.git ~/powerline-fonts
   ~/powerline-fonts/install.sh
 fi
@@ -40,14 +46,12 @@ fi
 # Nerdtree
 if [ ! -d ~/.vim/bundle/nerdtree ]; then
   echo "===> Installing NERDTree..."
-  echo "===> Don't forget to exec :Helptags in Vim"
   git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
 fi
 
 # CtrlP
 if [ ! -d ~/.vim/bundle/ctrlp.vim ]; then
   echo "===> Installing CtrlP..."
-  echo "===> Don't forget to exec :Helptags in Vim"
   git clone https://github.com/kien/ctrlp.vim.git ~/.vim/bundle/ctrlp.vim
 fi
 
@@ -67,8 +71,6 @@ fi
 # Silver searcher
 if [ ! -d ~/.vim/bundle/ag ]; then
   echo "===> Installing Silver Searcher..."
-  echo "===> Don't forget to install the_silver_searcher and execute :Helptags in Vim"
-  echo "===> brew install the_silver_searcher in Mac, apt-get install silversearcher-ag in linux"
   git clone https://github.com/rking/ag.vim ~/.vim/bundle/ag
 fi
 
@@ -77,3 +79,16 @@ if [ ! -d ~/.vim/bundle/indentLine ]; then
   echo "===> Installing indentLine..."
   git clone https://github.com/Yggdroot/indentLine ~/.vim/bundle/indentLine
 fi
+
+echo "=================================================================="
+echo " Done! Post install instructions:"
+echo " Mac:"
+echo "   * brew install the_silver_searcher"
+echo "   * change the default font for the terminal to powerline"
+echo " Linux:"
+echo "   * sudo apt-get install silversearcher-ag"
+echo " Both:"
+echo "   * Add link to .gitconfig-include in .gitconfig:"
+echo "     [include]"
+echo "         path = ~/dotfiles/.gitconfig-include"
+echo "=================================================================="

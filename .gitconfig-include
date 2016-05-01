@@ -1,11 +1,3 @@
-# To include this file, add this to ~/.gitconfig
-#
-# [user]
-#   email = davidlago@gmail.com
-#   name = David Lago
-# [include]
-#     path = ~/dotfiles/.gitconfig-include
-
 [core]
   excludesfile = ~/dotfiles/.gitignore_global
   editor = vi

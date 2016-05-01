@@ -1,11 +1,6 @@
 ## Dotfiles
-This is a collection of my personal configuration files. In order to install,
-first you need to install:
-
-* [zsh](http://www.zsh.org/) (and set as your default shell)
-* [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
-* [Vim](http://www.vim.org/)
-* [tmux](http://tmux.sourceforge.net/)
+This is a collection of my personal configuration files. It installs git,
+zsh, oh-my-zsh and tmux, and tweaks their config files.
 
 ### Installation
 Clone repository directly in your home directory, and run the installer:
@@ -13,6 +8,7 @@ Clone repository directly in your home directory, and run the installer:
 cd ~
 git clone https://github.com/davidlago/dotfiles.git
 cd dotfiles
+./setup.sh
+<log out and back in...>
 ./install.sh
 ```
-
