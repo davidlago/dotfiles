@@ -68,7 +68,7 @@ This is a list of some of the apps I install right away, in no particular order:
   * [Chrome](https://www.google.com/chrome/)
   * Atom ([PlatformIO](http://platformio.org/platformio-ide) flavor, so I can
   use for electronic projects too!)
-  * [Dropbox](https://www.dropbox.com/install?os=lnx)
+  * [insync](https://www.insynchq.com/) (sync Google Drive)
   * [Spotify](https://www.spotify.com/us/download/)
   * [Skype](http://www.skype.com/en/download-skype/skype-for-linux/downloading/?type=ubuntu64)
 
