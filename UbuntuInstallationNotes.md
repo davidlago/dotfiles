@@ -89,4 +89,11 @@ This is a list of some of the apps I install right away, in no particular order:
   prevent annoying error message after every reboot.
 
   * To be able to pair bluetooth headphones (Bose QC 35) edit `\etc\bluetooth\main.conf`
-  and set `ControllerMode = bredr`
+  and set `ControllerMode = bredr`. Also run this: `sudo apt-get install blueman bluetooth`.
+  Not sure if that made a difference, but bluetooth-manager seems to be the better
+  tool to manage bluetooth devices.
+
+  * Making the touchscreen work after suspending: I couldn't find a fix for this,
+  and it is a bit annoying that after suspending the touchscreen stops working.
+  The workaround is to close and open the lid quicly, and resume using the power
+  button (weird, I know... but it works!).
