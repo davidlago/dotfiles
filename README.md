@@ -15,4 +15,4 @@ cd dotfiles
 ```
 
 ### Other files of interest
-  * [Lenovo Yoga 3 Ubuntu 16.04 post-install](https://github.com/davidlago/dotfiles/blob/master/LenovoYoga3Ubuntu.md)
+  * [Ubuntu 16.04 Installation Notes](https://github.com/davidlago/dotfiles/blob/master/UbuntuInstallationNotes.md)

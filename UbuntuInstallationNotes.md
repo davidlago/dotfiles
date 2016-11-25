@@ -1,6 +1,6 @@
-## Installing Ubuntu in a Lenovo Yoga 3 Pro
+## Ubuntu installation notes
 This is a brief document outlining the steps I am taking as I configure my new
-Yoga Pro 3 to my liking. I'm assuming Ubuntu 16.04 has been successfully
+laptop to my liking. I'm assuming Ubuntu 16.04 LTS has been successfully
 installed, and that the `setup.sh`  and `install.sh` scripts have
 been run.
 
@@ -87,3 +87,6 @@ This is a list of some of the apps I install right away, in no particular order:
 
   * Un-check Chrome's advanced setting "Continue running background apps..." to
   prevent annoying error message after every reboot.
+
+  * To be able to pair bluetooth headphones (Bose QC 35) edit `\etc\bluetooth\main.conf`
+  and set `ControllerMode = bredr`
