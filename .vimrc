@@ -162,3 +162,8 @@ let g:Powerline_symbols = "fancy"
 let g:airline_theme='wombat'
 " indentLine color
 let g:indentLine_color_term = 237
+" Shift home row 1 to the right
+noremap ; l
+noremap l k
+noremap k j
+noremap j h
