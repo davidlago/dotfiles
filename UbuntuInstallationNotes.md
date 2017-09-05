@@ -97,3 +97,31 @@ This is a list of some of the apps I install right away, in no particular order:
   and it is a bit annoying that after suspending the touchscreen stops working.
   The workaround is to close and open the lid quicly, and resume using the power
   button (weird, I know... but it works!).
+
+  * Disabling touchpad while typing. This is very annoying, since it gets pretty jumpy on the XPS.
+  To fix this, add the following to `/usr/share/X11/xorg.conf.d/51-synaptics-quirks.
+    ```
+    # Disable generic Synaptics device, as we're using
+    # "DLL0704:01 06CB:76AE Touchpad"
+    # Having multiple touchpad devices running confuses syndaemon
+    Section "InputClass"
+      Identifier "SynPS/2 Synaptics TouchPad"
+      MatchProduct "SynPS/2 Synaptics TouchPad"
+      MatchIsTouchpad "on"
+      MatchOS "Linux"
+      MatchDevicePath "/dev/input/event*"
+      Option "Ignore" "on"
+    EndSection
+
+    Section "InputClass"
+      Identifier "touchpad catchall"
+      Driver "synaptics"
+      MatchIsTouchpad "on"
+      Option "VertTwoFingerScroll" "on"
+      Option "HorizTwoFingerScroll" "on"
+      MatchDevicePath "/dev/input/event*"
+    EndSection
+    ```
+    and run `syndaemon -i 1 -d -K` on boot (`~/.zshrc` or similar). If for some reason you lose 2
+    finger scrolling or tapping, make sure there is just one instance of `syndaemon` running (there are
+    other products like `touchpad-indicator` that use it too)
