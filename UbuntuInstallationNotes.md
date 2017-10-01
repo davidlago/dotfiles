@@ -74,6 +74,10 @@ This is a list of some of the apps I install right away, in no particular order:
 
 ### Misc configuration tweaks
 
+  * Do not use NVIDIA's proprietary driver: It is a battery drain! I couldn't go for longer than
+  2 hours on this driver. Go to the additional drivers menu, select the Nouveau driver and from
+  the one below select do not use this device. Restart.
+  
   * Change terminal profile colors to black background, light grey text,
   white bold text, transparent background and adjust the initial number of rows
   and columns.
