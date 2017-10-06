@@ -75,9 +75,25 @@ This is a list of some of the apps I install right away, in no particular order:
 ### Misc configuration tweaks
 
   * Do not use NVIDIA's proprietary driver: It is a battery drain! I couldn't go for longer than
-  2 hours on this driver. Go to the additional drivers menu, select the Nouveau driver and from
-  the one below select do not use this device. Restart.
-  
+  2 hours on this driver. Follow [this video's instructions](https://www.youtube.com/watch?v=5nGbWE-pvIE)
+  that I'm going to summarize here:
+    * Add `ppa:graphics-drivers` via the software and updates app
+    * Go to Additional Drivers and selec the latest for NVIDIA (387.15 worked for me)
+    * Install synaptics package manager
+    * From synaptics, install `bumblebee`, `bumblebee-nvidia` and `prime`, and check that `bbswitch`
+      is installed
+    * Type this into a terminal window: `sudo prime-select intel`
+    * Install prime indicator:
+      ```
+      sudo add-apt-repository ppa:nilarimogard/webupd8
+      sudo apt-get update
+      sudo apt-get install prime-indicator-plus
+      ```
+    * Edit `/etc/bumblebee/bumblebee.conf` and change all instances of `nvidia` and `nvidia-current`
+      to `nvidia-387` or whichever version you installed, and also change `PMMethod=bbswitch`
+    * Restart and pray! An indicator should appear in the top bar with the intel logo that will
+      allow you to switch back and forth from Intel to NVIDIA
+
   * Change terminal profile colors to black background, light grey text,
   white bold text, transparent background and adjust the initial number of rows
   and columns.
