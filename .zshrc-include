@@ -9,6 +9,7 @@ alias gc="git commit -m"
 alias gb="git branch"
 alias gco="git checkout"
 alias glg="git lg"
+alias python="python3"
 
 # LS colors
 export CLICOLOR=1

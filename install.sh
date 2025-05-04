@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 
 # Install oh my zsh
 if [ ! -d ~/.oh-my-zsh ]; then
@@ -22,20 +23,6 @@ if ! (grep ".zshrc-include" ~/.zshrc 2>&1 /dev/null); then
   echo "source ~/dotfiles/.zshrc-include" >> ~/.zshrc
 fi
 
-# Pathogen
-if [ ! -d ~/.vim/bundle ]; then
-  echo "===> Installing pathogen..."
-  mkdir -p ~/.vim/autoload ~/.vim/bundle
-  curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-fi
-
-# Vim airline
-if [ ! -d ~/.vim/bundle/vim-airline ]; then
-  echo "===> Installing vim-airline..."
-  git clone https://github.com/bling/vim-airline ~/.vim/bundle/vim-airline
-  git clone https://github.com/vim-airline/vim-airline-themes ~/.vim/bundle/vim-airline-themes
-fi
-
 # Powerline fonts (only needed in Macs)
 if [ ! -d ~/powerline-fonts ]; then
   echo "===> Installing powerline fonts..."
@@ -43,52 +30,35 @@ if [ ! -d ~/powerline-fonts ]; then
   ~/powerline-fonts/install.sh
 fi
 
-# Nerdtree
-if [ ! -d ~/.vim/bundle/nerdtree ]; then
-  echo "===> Installing NERDTree..."
-  git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
+TARGET_INCLUDE_PATH="$HOME/dotfiles/.gitconfig-include"
+GITCONFIG_FILE="$HOME/.gitconfig" # Location of the global gitconfig
+
+echo "Checking Git configuration in '$GITCONFIG_FILE'..."
+
+if git config --global --get-all include.path | grep -Fxq -- "$TARGET_INCLUDE_PATH"; then
+  echo "Include path '$TARGET_INCLUDE_PATH' is already present in global .gitconfig."
+else
+  echo "Include path '$TARGET_INCLUDE_PATH' not found. Adding it..."
+  git config --global --add include.path "$TARGET_INCLUDE_PATH"
+  if git config --global --get-all include.path | grep -Fxq -- "$TARGET_INCLUDE_PATH"; then
+    echo "Successfully added include path '$TARGET_INCLUDE_PATH'."
+  else
+    echo "Error: Failed to add include path '$TARGET_INCLUDE_PATH'. Please check permissions or '.gitconfig' syntax." >&2
+    exit 1
+  fi
 fi
 
-# CtrlP
-if [ ! -d ~/.vim/bundle/ctrlp.vim ]; then
-  echo "===> Installing CtrlP..."
-  git clone https://github.com/kien/ctrlp.vim.git ~/.vim/bundle/ctrlp.vim
-fi
-
-# Vim Fugitive
-if [ ! -d ~/.vim/bundle/vim-fugitive ]; then
-  echo "===> Installing Vim Fugitive..."
-  git clone https://github.com/tpope/vim-fugitive.git ~/.vim/bundle/vim-fugitive
-  vim -u NONE -c "helptags vim-fugitive/doc" -c q
-fi
-
-# Git gutter
-if [ ! -d ~/.vim/bundle/vim-gitgutter ]; then
-  echo "===> Installing Vim Gitgutter..."
-  git clone https://github.com/airblade/vim-gitgutter.git ~/.vim/bundle/vim-gitgutter
-fi
-
-# Silver searcher
-if [ ! -d ~/.vim/bundle/ag ]; then
-  echo "===> Installing Silver Searcher..."
-  git clone https://github.com/rking/ag.vim ~/.vim/bundle/ag
-fi
-
-# indentLine
-if [ ! -d ~/.vim/bundle/indentLine ]; then
-  echo "===> Installing indentLine..."
-  git clone https://github.com/Yggdroot/indentLine ~/.vim/bundle/indentLine
-fi
+# Use a case statement to determine the OS
+case $(uname -s) in
+    Linux)
+        sudo apt-get install silversearcher-ag
+        ;;
+    Darwin)
+        brew install the_silver_searcher
+        ;;
+esac
 
 echo "=================================================================="
-echo " Done! Post install instructions:"
-echo " Mac:"
-echo "   * brew install the_silver_searcher"
-echo "   * change the default font for the terminal to powerline"
-echo " Linux:"
-echo "   * sudo apt-get install silversearcher-ag"
-echo " Both:"
-echo "   * Add link to .gitconfig-include in .gitconfig:"
-echo "     [include]"
-echo "         path = ~/dotfiles/.gitconfig-include"
+echo " Done! If you are on a Mac, remember to update the terminal font  "
+echo " to one of the Powerline variants                                 "
 echo "=================================================================="

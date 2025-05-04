@@ -1,17 +1,26 @@
-execute pathogen#infect()
+" Map to ,
+let mapleader = ','
 
-" An example for a vimrc file.
-"
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2008 Dec 17
-"
-" To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
-"	    for OpenVMS:  sys$login:.vimrc
+" Manage plugins with vim-plug.
+call plug#begin()
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-vinegar'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'mileszs/ack.vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-fugitive'
+Plug 'rking/ag.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'Yggdroot/indentLine'
+Plug 'junegunn/vim-plug'
+Plug 'mbbill/undotree'
+let g:plug_timeout = 300 " Increase vim-plug timeout for
+                         " YouCompleteMe.
+Plug 'ycm-core/YouCompleteMe', { 'do': './install.py' }
+call plug#end()
 
-" When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
   finish
 endif
@@ -43,10 +52,7 @@ map Q gq
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
 
-" In many terminal emulators the mouse works just fine, thus enable it.
-if has('mouse')
-  set mouse=a
-endif
+set mouse=a
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -163,5 +169,29 @@ let g:airline_theme='wombat'
 " indentLine color
 let g:indentLine_color_term = 237
 " Shift home row 1 to the right
-noremap ; l
-noremap l h
+" noremap ; l
+" noremap l h
+
+
+silent! helptags ALL " Load help files for all plugins.
+
+" From Mastering Vim book
+noremap <c-h> <c-w><c-h>
+noremap <c-j> <c-w><c-j>
+noremap <c-k> <c-w><c-k>
+noremap <c-l> <c-w><c-l>
+
+"autocmd filetype python set foldmethod=indent
+
+set wildoptions=pum " vertical autocomplete for auto-complete (wildmenu)
+
+let NERDTreeShowBookmarks=1 " Display bookmarks on startup
+let NERDTreeHijackNetrw=0 " Don't have NERDTree replace Netrw
+
+" Be bold and unmap the arrow keys to force use of home row
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+
+set tags=tags; " Look for a tags file recursively in parent directories.
