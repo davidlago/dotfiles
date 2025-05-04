@@ -17,6 +17,11 @@ ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/davidlago.zsh-theme ~/.oh-my-zsh/themes/davidlago.zsh-theme
 ln -sf ~/dotfiles/monokai.vim ~/.vim/colors/monokai.vim
 
+# Install vim-plug
+if [ ! -f ~/.vim/autoload/plug.vim ]; then
+  curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.github.com/junegunn/vim-plug/master/plug.vim
+fi
+
 # Link included file to .zshrc
 if ! (grep ".zshrc-include" ~/.zshrc 2>&1 /dev/null); then
   echo "===> Linking .zshrc-include to main .zshrc..."
