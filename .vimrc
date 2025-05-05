@@ -1,5 +1,5 @@
-" Map to ,
-let mapleader = ','
+" Alternative leader map to ,
+" let mapleader = ','
 
 " Manage plugins with vim-plug.
 call plug#begin()
