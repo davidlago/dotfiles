@@ -21,7 +21,7 @@ ln -sf ~/dotfiles/monokai.vim ~/.vim/colors/monokai.vim
 if [ ! -f ~/.vim/autoload/plug.vim ]; then
   curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.github.com/junegunn/vim-plug/master/plug.vim
 fi
-vim -c ':PlugInstall'
+vim -c ':PlugInstall | q | :q!'
 
 # Link included file to .zshrc
 if ! (grep ".zshrc-include" ~/.zshrc 2>&1 /dev/null); then
