@@ -172,7 +172,6 @@ let g:indentLine_color_term = 237
 " noremap ; l
 " noremap l h
 
-
 silent! helptags ALL " Load help files for all plugins.
 
 " From Mastering Vim book
@@ -187,6 +186,7 @@ set wildoptions=pum " vertical autocomplete for auto-complete (wildmenu)
 
 let NERDTreeShowBookmarks=1 " Display bookmarks on startup
 let NERDTreeHijackNetrw=0 " Don't have NERDTree replace Netrw
+noremap <leader>n :NERDTree<cr>
 
 " Be bold and unmap the arrow keys to force use of home row
 map <up> <nop>
