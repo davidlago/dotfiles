@@ -63,17 +63,14 @@ endif
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
-
   " Enable file type detection.
   " Use the default filetype settings, so that mail gets 'tw' set to 72,
   " 'cindent' is on in C files, etc.
   " Also load indent files, to automatically do language-dependent indenting.
   filetype plugin indent on
-
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
   au!
-
   " For all text files set 'textwidth' to 78 characters.
   autocmd FileType text setlocal textwidth=78
 
@@ -86,13 +83,9 @@ if has("autocmd")
     \ if line("'\"") > 1 && line("'\"") <= line("$") |
     \   exe "normal! g`\"" |
     \ endif
-
   augroup END
-
 else
-
   set autoindent		" always set autoindenting on
-
 endif " has("autocmd")
 
 " Convenient command to see the difference between the current buffer and the
@@ -128,6 +121,8 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+
+" MISC
 " 2-space indents
 filetype plugin indent on
 set tabstop=2
@@ -139,6 +134,7 @@ if has('unnamedplus')
 endif
 " Highlight search fields
 highlight Search ctermfg=yellow
+silent! helptags ALL " Load help files for all plugins.
 
 " Airline config:
 " Enable the list of buffers
@@ -149,6 +145,9 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 set laststatus=2
 " Powerline symbols
 let g:airline_powerline_fonts = 1
+
+" BUFFERS
+"
 " This allows buffers to be hidden if you've modified a buffer.
 " This is almost a must if you wish to use buffers in this way.
 set hidden
@@ -164,15 +163,19 @@ nmap <leader>h :bprevious<CR>
 nmap <leader>bq :bp <BAR> bd #<CR>
 " Show all open buffers and their status
 nmap <leader>bl :ls<CR>
+
+" Resizing splits with leader + arrows
+nnoremap <Leader><Left> <C-w><
+nnoremap <Leader><Right> <C-w>>
+nnoremap <Leader><Up> <C-w>-
+nnoremap <Leader><Down> <C-w>+
+
+" POWERLINE
 let g:Powerline_symbols = "fancy"
 let g:airline_theme='wombat'
 " indentLine color
 let g:indentLine_color_term = 237
-" Shift home row 1 to the right
-" noremap ; l
-" noremap l h
 
-silent! helptags ALL " Load help files for all plugins.
 
 " From Mastering Vim book
 noremap <c-h> <c-w><c-h>
