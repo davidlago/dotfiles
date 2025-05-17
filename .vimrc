@@ -19,6 +19,7 @@ Plug 'mbbill/undotree'
 let g:plug_timeout = 300 " Increase vim-plug timeout for
                          " YouCompleteMe.
 Plug 'ycm-core/YouCompleteMe', { 'do': './install.py' }
+"Plug 'dense-analysis/ale'
 call plug#end()
 
 if v:progname =~? "evim"
