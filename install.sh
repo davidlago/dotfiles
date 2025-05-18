@@ -16,6 +16,8 @@ mkdir -p ~/.vim/colors
 ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/davidlago.zsh-theme ~/.oh-my-zsh/themes/davidlago.zsh-theme
 ln -sf ~/dotfiles/monokai.vim ~/.vim/colors/monokai.vim
+mkdir -p ~/.config
+ln -sf ~/dotfiles/nvim ~/.config/nvim
 
 # Install vim-plug
 if [ ! -f ~/.vim/autoload/plug.vim ]; then
