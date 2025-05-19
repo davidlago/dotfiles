@@ -42,10 +42,9 @@ fi
 if [ ! -d ~/.tmux/plugins/tpm ]; then
   echo "===> Installing TPM..."
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-  tmux source ~/.tmux.conf
 fi
 ln -sf ~/dotfiles/tmux-powerline-config.sh ~/.config/tmux-powerline/config.sh
-
+tmux source-file ~/.tmux.conf
 
 TARGET_INCLUDE_PATH="$HOME/dotfiles/.gitconfig-include"
 GITCONFIG_FILE="$HOME/.gitconfig" # Location of the global gitconfig
