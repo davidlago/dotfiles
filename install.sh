@@ -18,7 +18,6 @@ ln -sf ~/dotfiles/davidlago.zsh-theme ~/.oh-my-zsh/themes/davidlago.zsh-theme
 ln -sf ~/dotfiles/monokai.vim ~/.vim/colors/monokai.vim
 mkdir -p ~/.config
 ln -sf ~/dotfiles/nvim ~/.config/nvim
-ln -sf ~/dotfiles/tmux-powerline-config.sh ~/.config/tmux-powerline/config.sh
 
 # Install vim-plug
 if [ ! -f ~/.vim/autoload/plug.vim ]; then
@@ -32,7 +31,7 @@ if ! (grep ".zshrc-include" ~/.zshrc 2>&1 /dev/null); then
   echo "source ~/dotfiles/.zshrc-include" >> ~/.zshrc
 fi
 
-# Powerline fonts (only needed in Macs)
+# Powerline fonts
 if [ ! -d ~/powerline-fonts ]; then
   echo "===> Installing powerline fonts..."
   git clone https://github.com/powerline/fonts.git ~/powerline-fonts
@@ -43,7 +42,10 @@ fi
 if [ ! -d ~/.tmux/plugins/tpm ]; then
   echo "===> Installing TPM..."
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  tmux source ~/.tmux.conf
 fi
+ln -sf ~/dotfiles/tmux-powerline-config.sh ~/.config/tmux-powerline/config.sh
+
 
 TARGET_INCLUDE_PATH="$HOME/dotfiles/.gitconfig-include"
 GITCONFIG_FILE="$HOME/.gitconfig" # Location of the global gitconfig
