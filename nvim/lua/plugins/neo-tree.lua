@@ -8,14 +8,15 @@ return {
         "MunifTanjim/nui.nvim",
     },
     lazy = false, -- neo-tree will lazily load itself
-    opts = {
-      window = {
-        width = 30,
-      },
-    },
+
     config = function()
+      local neotree = require("neo-tree")
+      neotree.setup({
+        window = {
+          width = 30,
+        },
+      })
       vim.keymap.set('n', '<C-n>', ':Neotree filesystem reveal left<CR>', {})
     end
   }
 }
-

@@ -18,6 +18,7 @@ ln -sf ~/dotfiles/davidlago.zsh-theme ~/.oh-my-zsh/themes/davidlago.zsh-theme
 ln -sf ~/dotfiles/monokai.vim ~/.vim/colors/monokai.vim
 mkdir -p ~/.config
 ln -sf ~/dotfiles/nvim ~/.config/nvim
+ln -sf ~/dotfiles/tmux-powerline-config.sh ~/.config/tmux-powerline/config.sh
 
 # Install vim-plug
 if [ ! -f ~/.vim/autoload/plug.vim ]; then
@@ -36,6 +37,12 @@ if [ ! -d ~/powerline-fonts ]; then
   echo "===> Installing powerline fonts..."
   git clone https://github.com/powerline/fonts.git ~/powerline-fonts
   ~/powerline-fonts/install.sh
+fi
+
+# TPM
+if [ ! -d ~/.tmux/plugins/tpm ]; then
+  echo "===> Installing TPM..."
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
 TARGET_INCLUDE_PATH="$HOME/dotfiles/.gitconfig-include"
@@ -65,6 +72,7 @@ case $(uname -s) in
         brew install the_silver_searcher
         ;;
 esac
+
 
 echo "=================================================================="
 echo " Done! If you are on a Mac, remember to update the terminal font  "
