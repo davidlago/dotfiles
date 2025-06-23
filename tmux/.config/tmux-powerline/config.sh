@@ -423,7 +423,7 @@
 	# The data provider to use. Currently only "yrno" is supported.
 	export TMUX_POWERLINE_SEG_WEATHER_DATA_PROVIDER="yrno"
 	# What unit to use. Can be any of {c,f,k}.
-	export TMUX_POWERLINE_SEG_WEATHER_UNIT="c"
+	export TMUX_POWERLINE_SEG_WEATHER_UNIT="f"
 	# How often to update the weather in seconds.
 	export TMUX_POWERLINE_SEG_WEATHER_UPDATE_PERIOD="600"
 	# How often to update the weather location in seconds (this is only used when latitude and longitude settings are set to "auto")

@@ -5,14 +5,8 @@ set -e
 if [ ! -d ~/.oh-my-zsh ]; then
   echo "===> Installing oh-my-zsh..."
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-  sed -i 's/robbyrussell/davidlago/g' ~/.zshrc
 fi
-
-# Link included file to .zshrc
-if ! (grep ".zshrc-include" ~/.zshrc 2>&1 /dev/null); then
-  echo "===> Linking .zshrc-include to main .zshrc..."
-  echo "source ~/.zshrc-include" >> ~/.zshrc
-fi
+rm -rf ~/.zshrc
 stow zsh
 
 # (n)vim
