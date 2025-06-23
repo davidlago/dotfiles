@@ -1,3 +1,4 @@
 .*.swp
 .luarc.json
 lazy-lock.json
+.zshrc-include
