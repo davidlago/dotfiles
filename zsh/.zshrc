@@ -25,3 +25,5 @@ export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 if [ -z "$TMUX" ]; then
   tmux a || tmux
 fi
+
+source ~/.zshrc-include
