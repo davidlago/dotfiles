@@ -8,6 +8,7 @@ if [ ! -d ~/.oh-my-zsh ]; then
 fi
 rm -rf ~/.zshrc
 stow zsh
+touch ~/.zshrc-include
 
 # (n)vim
 rm -rf ~/.vimrc
