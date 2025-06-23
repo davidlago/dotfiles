@@ -25,6 +25,7 @@ stow nvim
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
 sudo rm -rf /opt/nvim
 sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
+rm -rf nvim-linux-x86_64.tar.gz
 
 # Install vim-plug
 if [ ! -f ~/.vim/autoload/plug.vim ]; then
@@ -64,6 +65,7 @@ esac
 
 echo "=================================================================="
 echo " Done! If you are on a Mac, remember to update the terminal font  "
-echo " to one of the Powerline variants. Also, you might need to reload "
-echo " tmux by opening it and hitting ctrl + b + r.                     "
+echo " to one of the Powerline variants. Also, you need to reload tmux  "
+echo " config by opening it and hitting ctrl + b + r, and installing    "
+echo " tmux-powerlin with ctrl + b + I.                                 "
 echo "=================================================================="

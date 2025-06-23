@@ -13,6 +13,3 @@ cd dotfiles
 <log out and back in...>
 ./install.sh
 ```
-
-### Other files of interest
-  * [Ubuntu 16.04 Installation Notes](https://github.com/davidlago/dotfiles/blob/master/UbuntuInstallationNotes.md)
