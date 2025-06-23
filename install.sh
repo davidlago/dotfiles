@@ -8,28 +8,25 @@ if [ ! -d ~/.oh-my-zsh ]; then
   sed -i 's/robbyrussell/davidlago/g' ~/.zshrc
 fi
 
-# Symlinks
-rm ~/.vimrc
-rm ~/.tmux.conf
-ln -sf ~/dotfiles/.vimrc ~/.vimrc
+# Link included file to .zshrc
+if ! (grep ".zshrc-include" ~/.zshrc 2>&1 /dev/null); then
+  echo "===> Linking .zshrc-include to main .zshrc..."
+  echo "source ~/.zshrc-include" >> ~/.zshrc
+fi
+stow zsh
+
+# (n)vim
+rm -rf ~/.vimrc
 mkdir -p ~/.vim/colors
-ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
-ln -sf ~/dotfiles/davidlago.zsh-theme ~/.oh-my-zsh/themes/davidlago.zsh-theme
-ln -sf ~/dotfiles/monokai.vim ~/.vim/colors/monokai.vim
+stow vim
 mkdir -p ~/.config
-ln -sf ~/dotfiles/nvim ~/.config/nvim
+stow nvim
 
 # Install vim-plug
 if [ ! -f ~/.vim/autoload/plug.vim ]; then
   curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.github.com/junegunn/vim-plug/master/plug.vim
 fi
 vim -c ':PlugInstall | q | :q!'
-
-# Link included file to .zshrc
-if ! (grep ".zshrc-include" ~/.zshrc 2>&1 /dev/null); then
-  echo "===> Linking .zshrc-include to main .zshrc..."
-  echo "source ~/dotfiles/.zshrc-include" >> ~/.zshrc
-fi
 
 # Powerline fonts
 if [ ! -d ~/powerline-fonts ]; then
@@ -38,31 +35,18 @@ if [ ! -d ~/powerline-fonts ]; then
   ~/powerline-fonts/install.sh
 fi
 
-# TPM
+# tmux
+rm -rf ~/.tmux.conf
 if [ ! -d ~/.tmux/plugins/tpm ]; then
   echo "===> Installing TPM..."
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
-ln -sf ~/dotfiles/tmux-powerline-config.sh ~/.config/tmux-powerline/config.sh
-tmux source-file ~/.tmux.conf
+stow tmux
 
-TARGET_INCLUDE_PATH="$HOME/dotfiles/.gitconfig-include"
-GITCONFIG_FILE="$HOME/.gitconfig" # Location of the global gitconfig
-
-echo "Checking Git configuration in '$GITCONFIG_FILE'..."
-
-if git config --global --get-all include.path | grep -Fxq -- "$TARGET_INCLUDE_PATH"; then
-  echo "Include path '$TARGET_INCLUDE_PATH' is already present in global .gitconfig."
-else
-  echo "Include path '$TARGET_INCLUDE_PATH' not found. Adding it..."
-  git config --global --add include.path "$TARGET_INCLUDE_PATH"
-  if git config --global --get-all include.path | grep -Fxq -- "$TARGET_INCLUDE_PATH"; then
-    echo "Successfully added include path '$TARGET_INCLUDE_PATH'."
-  else
-    echo "Error: Failed to add include path '$TARGET_INCLUDE_PATH'. Please check permissions or '.gitconfig' syntax." >&2
-    exit 1
-  fi
-fi
+# git
+rm -rf ~/.gitconfig
+rm -rf ~/.gitconfig-include
+stow git
 
 # Use a case statement to determine the OS
 case $(uname -s) in
@@ -74,8 +58,8 @@ case $(uname -s) in
         ;;
 esac
 
-
 echo "=================================================================="
 echo " Done! If you are on a Mac, remember to update the terminal font  "
-echo " to one of the Powerline variants                                 "
+echo " to one of the Powerline variants. Also, you might need to reload "
+echo " tmux by opening it and hitting ctrl + b + r.                     "
 echo "=================================================================="

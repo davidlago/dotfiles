@@ -2,4 +2,4 @@
   name = Dave Lago
   email = davidlago@gmail.com
 [include]
-  path = ~/dotfiles/.gitconfig-include
+  path = ~/.gitconfig-include

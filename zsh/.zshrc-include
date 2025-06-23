@@ -1,7 +1,3 @@
-# To include, add this to ~/.zshrc:
-#
-# source ~/dotfiles/.zshrc-include
-
 # Git aliases
 alias gs="git status"
 alias ga="git add -A ."
