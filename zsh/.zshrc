@@ -21,11 +21,6 @@ export LS_COLORS='di=93:fi=0:ln=95:pi=5:so=5:bd=5:cd=5:or=31:mi=0:ex=31:*.rpm=90
 # Neovim
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 
-# Automatically attach or launch tmux if not alrady in a session
-if [ -z "$TMUX" ]; then
-  tmux a || tmux
-fi
-
 source ~/.zshrc-include
 # Prevent pyenv-virtualenv prompt add-on
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
