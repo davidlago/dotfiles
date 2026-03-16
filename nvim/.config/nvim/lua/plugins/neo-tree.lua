@@ -13,7 +13,7 @@ return {
       local neotree = require("neo-tree")
       neotree.setup({
         window = {
-          width = 30,
+          width = 40,
         },
       })
       vim.keymap.set('n', '<C-n>', ':Neotree filesystem reveal left<CR>', {})

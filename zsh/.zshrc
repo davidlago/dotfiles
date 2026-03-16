@@ -27,3 +27,5 @@ if [ -z "$TMUX" ]; then
 fi
 
 source ~/.zshrc-include
+# Prevent pyenv-virtualenv prompt add-on
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
