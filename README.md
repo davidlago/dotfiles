@@ -8,6 +8,7 @@ everything into place.
 
 - **macOS** (packages via [Homebrew](https://brew.sh))
 - **Linux / Debian-based** (packages via `apt-get`)
+- **Amazon Linux / RHEL-family** (packages via `dnf`)
 
 ### Installation
 
